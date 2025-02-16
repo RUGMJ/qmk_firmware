@@ -100,5 +100,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS       , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS       , KC_MEDIA_PREV_TRACK , KC_AUDIO_VOL_DOWN , KC_AUDIO_VOL_UP , KC_MEDIA_NEXT_TRACK,
   KC_TRNS       , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS       , KC_TRNS             , KC_TRNS           , KC_TRNS         , KC_TRNS            ,
                                       KC_TRNS , KC_TRNS ,     KC_AUDIO_MUTE , KC_MEDIA_PLAY_PAUSE
+),
+
+//    ┌─────┬────┬────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬───────────────┐
+//    │ f12 │ f7 │ f8 │ f9  │ f15 │   │     │     │     │     │ QK_LAYER_LOCK │
+//    ├─────┼────┼────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼───────────────┤
+//    │ f11 │ f4 │ f5 │ f6  │ f14 │   │     │     │     │     │               │
+//    ├─────┼────┼────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼───────────────┤
+//    │ f10 │ f1 │ f2 │ f3  │ f13 │   │     │     │     │     │               │
+//    └─────┴────┴────┼─────┼─────┤   ├─────┼─────┼─────┴─────┴───────────────┘
+//                    │ f16 │ f17 │   │     │     │
+//                    └─────┴─────┘   └─────┴─────┘
+[_FUNCTION] = LAYOUT_split_3x5_2(
+  KC_F12 , KC_F7 , KC_F8 , KC_F9  , KC_F15 ,     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , QK_LAYER_LOCK,
+  KC_F11 , KC_F4 , KC_F5 , KC_F6  , KC_F14 ,     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS      ,
+  KC_F10 , KC_F1 , KC_F2 , KC_F3  , KC_F13 ,     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS      ,
+                           KC_F16 , KC_F17 ,     KC_TRNS , KC_TRNS
 )
 };
