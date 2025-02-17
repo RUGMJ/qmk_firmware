@@ -91,13 +91,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ├───────────────┼─────┼─────┼─────┼─────┤   ├─────┼──────┼──────┼──────┼──────┤
 //    │               │     │     │     │     │   │     │      │ pgdn │ pgup │      │
 //    └───────────────┴─────┴─────┼─────┼─────┤   ├─────┼──────┼──────┴──────┴──────┘
-//                                │     │     │   │     │      │
+//                                │     │     │   │     │ bspc │
 //                                └─────┴─────┘   └─────┴──────┘
 [_NAV] = LAYOUT_split_3x5_2(
-  QK_LAYER_LOCK , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , KC_TRNS , KC_TRNS   , KC_TRNS , KC_TRNS ,
-  KC_TRNS       , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , KC_LEFT , KC_DOWN   , KC_UP   , KC_RIGHT,
+  QK_LAYER_LOCK , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
+  KC_TRNS       , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , KC_LEFT , KC_DOWN , KC_UP   , KC_RIGHT,
   KC_TRNS       , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,     KC_TRNS , KC_TRNS , KC_PGDN , KC_PGUP , KC_TRNS ,
-                                      KC_TRNS , KC_TRNS ,     KC_TRNS , KC_TRNS
+                                      KC_TRNS , KC_TRNS ,     KC_TRNS , KC_BSPC
 ),
 
 //    ┌───────────────┬─────┬─────┬─────┬─────┐   ┌──────┬──────┬──────┬──────┬──────┐
