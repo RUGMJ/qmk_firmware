@@ -21,6 +21,19 @@ combo_t key_combos[] = {
     COMBO(right_dual_thumb, LT(_FUNCTION, KC_NO)), // TODO: decide what I want this to do
 };
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+    uint8_t current_layer = get_highest_layer(state);
+
+    uint8_t data[32] = {0};
+
+    data[0] = 0x01; // Type indicator for layer change
+    data[1] = current_layer;
+
+    raw_hid_send(data, sizeof(data));
+
+    return state;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //    ┌───────────┬───────────┬───────────┬──────────────┬──────────────┐   ┌──────────────┬──────────────┬───────────┬───────────┬───────────┐
 //    │     q     │     w     │     e     │      r       │      t       │   │      y       │      u       │     i     │     o     │     p     │

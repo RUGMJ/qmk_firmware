@@ -1,2 +1,3 @@
 COMBO_ENABLE = yes
 LAYER_LOCK_ENABLE = yes
+RAW_ENABLE = yes
