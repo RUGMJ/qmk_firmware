@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "raw_hid.h"
 
 enum LAYERS {
     _BASE,
