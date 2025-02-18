@@ -8,6 +8,8 @@ enum LAYERS {
     _NAV,
     _MEDIA,
     _FUNCTION,
+    _MENU,
+    _GAME,
 };
 
 #define KC_LEFT_THUMB_1 LT(_NAV, KC_SPC)
@@ -17,9 +19,11 @@ enum LAYERS {
 
 const uint16_t PROGMEM left_dual_thumb[] = {KC_LEFT_THUMB_1, KC_LEFT_THUMB_2, COMBO_END};
 const uint16_t PROGMEM right_dual_thumb[] = {KC_RIGHT_THUMB_1, KC_RIGHT_THUMB_2, COMBO_END};
+const uint16_t PROGMEM all_thumbs[] = {KC_LEFT_THUMB_1, KC_LEFT_THUMB_2, KC_RIGHT_THUMB_1, KC_RIGHT_THUMB_2, COMBO_END};
 combo_t key_combos[] = {
     COMBO(left_dual_thumb, LT(_MEDIA, KC_TAB)),
     COMBO(right_dual_thumb, LT(_FUNCTION, KC_DEL)),
+    COMBO(all_thumbs, MO(_MENU)),
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
@@ -130,5 +134,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_F11 , KC_F4 , KC_F5 , KC_F6  , KC_F14 ,     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS      ,
   KC_F10 , KC_F1 , KC_F2 , KC_F3  , KC_F13 ,     KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS      ,
                            KC_F16 , KC_F17 ,     KC_TRNS , KC_TRNS
+),
+
+//    ┌────┬────┬───────────┬────┬────┐   ┌────┬────┬────┬────┬─────────┐
+//    │ no │ no │    no     │ no │ no │   │ no │ no │ no │ no │ QK_BOOT │
+//    ├────┼────┼───────────┼────┼────┤   ├────┼────┼────┼────┼─────────┤
+//    │ no │ no │ DF(_GAME) │ no │ no │   │ no │ no │ no │ no │   no    │
+//    ├────┼────┼───────────┼────┼────┤   ├────┼────┼────┼────┼─────────┤
+//    │ no │ no │    no     │ no │ no │   │ no │ no │ no │ no │   no    │
+//    └────┴────┴───────────┼────┼────┤   ├────┼────┼────┴────┴─────────┘
+//                          │ no │ no │   │ no │ no │
+//                          └────┴────┘   └────┴────┘
+[_MENU] = LAYOUT_split_3x5_2(
+  KC_NO , KC_NO , KC_NO     , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO , KC_NO , QK_BOOT,
+  KC_NO , KC_NO , DF(_GAME) , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  ,
+  KC_NO , KC_NO , KC_NO     , KC_NO , KC_NO ,     KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  ,
+                              KC_NO , KC_NO ,     KC_NO , KC_NO
+),
+
+//    ┌─────┬───┬───┬─────┬─────┐   ┌───────────┬──────┬───┬───┬───┐
+//    │     │ q │ w │  e  │  r  │   │ DF(_BASE) │  y   │ u │ i │ p │
+//    ├─────┼───┼───┼─────┼─────┤   ├───────────┼──────┼───┼───┼───┤
+//    │     │ a │ s │  d  │  f  │   │     g     │  h   │ j │ k │ l │
+//    ├─────┼───┼───┼─────┼─────┤   ├───────────┼──────┼───┼───┼───┤
+//    │     │ z │ x │  c  │  v  │   │     b     │  n   │ m │ , │ . │
+//    └─────┴───┴───┼─────┼─────┤   ├───────────┼──────┼───┴───┴───┘
+//                  │ spc │ esc │   │    ent    │ bspc │
+//                  └─────┴─────┘   └───────────┴──────┘
+[_GAME] = LAYOUT_split_3x5_2(
+  KC_TRNS , KC_Q , KC_W , KC_E   , KC_R   ,     DF(_BASE) , KC_Y    , KC_U , KC_I    , KC_P  ,
+  KC_TRNS , KC_A , KC_S , KC_D   , KC_F   ,     KC_G      , KC_H    , KC_J , KC_K    , KC_L  ,
+  KC_TRNS , KC_Z , KC_X , KC_C   , KC_V   ,     KC_B      , KC_N    , KC_M , KC_COMM , KC_DOT,
+                          KC_SPC , KC_ESC ,     KC_ENTER  , KC_BSPC
 )
 };
