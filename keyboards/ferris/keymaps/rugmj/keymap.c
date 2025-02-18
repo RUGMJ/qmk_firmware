@@ -19,7 +19,7 @@ const uint16_t PROGMEM left_dual_thumb[] = {KC_LEFT_THUMB_1, KC_LEFT_THUMB_2, CO
 const uint16_t PROGMEM right_dual_thumb[] = {KC_RIGHT_THUMB_1, KC_RIGHT_THUMB_2, COMBO_END};
 combo_t key_combos[] = {
     COMBO(left_dual_thumb, LT(_MEDIA, KC_TAB)),
-    COMBO(right_dual_thumb, LT(_FUNCTION, KC_NO)), // TODO: decide what I want this to do
+    COMBO(right_dual_thumb, LT(_FUNCTION, KC_DEL)),
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
